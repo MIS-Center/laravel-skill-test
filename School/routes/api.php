@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\School;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// offcouse Ii should add api controller and add lang middleware and auth ..etc
+Route::get('/schools',function(){
+    return response()->json(School::all())  ;
 });
